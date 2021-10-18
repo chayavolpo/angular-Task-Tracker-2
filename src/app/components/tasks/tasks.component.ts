@@ -28,4 +28,12 @@ export class TasksComponent implements OnInit {
     task.reminder = !task.reminder;
     this.taskService.updateTaskReminder(task).subscribe();
   }
+
+  // tslint:disable-next-line:typedef
+  addTask(task: Task) {
+    this.taskService.addTask(task).subscribe( newTask => {
+      console.log(newTask);
+      this.tasks.push(newTask);
+    });
+  }
 }
